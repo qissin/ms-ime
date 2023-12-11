@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&family=Zen+Maru+Gothic:wght@500&display=swap');
+
+* {margin: 0; padding: 0; user-select: none; text-decoration: none; color: #000; overflow: hidden;}html { overflow-y: auto; scroll-behavior: smooth;}body { --width: calc(100vw - 10px); width: var(--width); background-color: #fff; &::-webkit-scrollbar { width: 10px; } &::-webkit-scrollbar-track { background-color: #bbb; } &::-webkit-scrollbar-thumb { background-color: #444; border: 2px solid transparent; border-radius: 10px; background-clip: padding-box; &:hover { background-color: #222; } }}
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100dvh;
+
+    a.toppage {
+        display: grid;
+        place-items: center;
+        font-size: 1.4rem;
+        font-family: 'train one';
+        text-align: center;
+        line-height: 1;
+        height: 20dvh;
+        background-color: #000;
+        color: #fff;
+    }
+    nav {
+        width: 100%;
+        height: 80dvh;
+        background: linear-gradient(to bottom, #15f, #51f);
+        padding-inline: .7rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        a {
+            position: relative;
+            display: block;
+            color: #fff;
+            font-family: 'zen maru gothic';
+            line-height: 2;
+            width: calc(100% - 1.4rem);
+            padding-left: 1rem;
+            box-sizing: border-box;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: #fff;
+                margin-left: .7rem;
+                transition: all .2s ease-out;
+            }
+            &:hover {
+                &::after {
+                    width: 100%;
+                    transition: all .2s ease-out;
+                }
+            }
+        }
+        hr {
+            margin-block: .6rem;
+            width: calc(100% - 1.4rem);
+            opacity: 0;
+        }
+    }
+    p {
+        color: #fff;
+        font-family: 'zen maru gothic';
+    }
+}
+
+section {
+    margin-left: 220px;
+    padding-top: 3rem;
+
+    p.ttl {
+        position: relative;
+        font-size: 2.2rem;
+        font-family: 'train one';
+        padding-left: 20px;
+        color: #15f;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            translate: 0 -50%;
+            width: 6px;
+            height: 80%;
+            border-inline: 2px solid #15f;
+            background-color: #0000;
+        }
+    }
+    div {
+        margin-left: 3rem;
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 0.1rem;
+        margin-right: .5rem;
+
+        video {
+            display: block;
+            width: 30%;
+            flex-shrink: 0; 
+            aspect-ratio: 16/9;
+            border: 1px solid #000;
+        }
+        p {
+            width: 70%;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            font-family: 'zen maru gothic';
+
+            span.ttl {
+                display: block;
+                font-size: 1.7rem;
+                line-height: 1.1;
+                margin-bottom: 0.5rem;
+            }
+            span.strong {
+                color: #f00;
+                font-weight: bold;
+            }
+        }
+    }
+    ul {
+        margin-left: 3rem;
+        margin-bottom: 3rem;
+
+        li {
+            font-size: 1.2rem;
+            font-family: 'zen maru gothic';
+
+            &::before {
+                content: '・';
+            }
+            a {
+                color: #00a;
+            }
+        }
+    }
+}

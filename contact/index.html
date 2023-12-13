@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ｜MS-IME ユーザー辞書 ジェネレーター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside>
+        <a href="../" class="toppage" title="トップへ">MS-IME<br>ユーザー辞書<br>ジェネレーター</a>
+        <nav>
+            <a href="#" class="invisible">a</a>
+            <a href="#" class="invisible">a</a>
+            <a href="#" class="invisible">a</a>
+                <hr color="#fff" noshade="0" size="1">
+            <a href="#">ソースコード</a>
+            <a href="../contact/">お問い合わせ</a>
+            <a href="../about/">使い方</a>
+                <hr color="#fff" noshade="0" size="1">
+            <a href="https://m.youtube.com/@xasvr.">ホームページ</a>
+            <a href="https://m.youtube.com/@xasvr.">YouTube</a>
+            <a href="https://m.twitter.com/xasvr_">X(旧Twitter)</a>
+            <p>&copy; 2023 xasvr. </p>
+        </nav>
+    </aside>
+
+    <main>
+        <p class="ttl">お問い合わせ</p>
+        <div>
+            <input type="email" placeholder="例：email@example.com" id="email">
+            <p>メールアドレス</p>
+        </div>
+        <div>
+            <textarea placeholder="ご不満やご要望等をご入力ください。いたずらでのご送信はご遠慮ください。" id="content"></textarea>
+            <p>お問い合わせ内容</p>
+        </div>
+        <input type="submit" value="送信" id="send">
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $('#send').click(function() {
+            var email = $('#email');
+            var content = $('#content');
+            var send = $('#send');
+
+            if (email.val() == '') {
+                email.val('メールアドレスを入力してください');
+                email.addClass('error');
+
+                setTimeout(() => {
+                    email.removeClass('error');
+                    email.val('');
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    email.val('');
+                }, 1);
+            }
+
+            if (content.val() == '') {
+                content.val('お問い合わせ内容を入力してください');
+                content.addClass('error');
+                
+                setTimeout(() => {
+                    content.removeClass('error');
+                    content.val('');
+                }, 1000);
+            } else {
+                setTimeout(() => {
+                    content.val('');
+                }, 1);
+            }
+
+            if ($(".error").length) {
+                send.val('送信不可');
+                send.addClass('dontsend');
+
+                setTimeout(() => {
+                    send.val('送信');
+                    send.removeClass('dontsend');
+                }, 1000);
+            } else {
+                send.val('送信しました');
+                send.addClass('sended');
+
+                setTimeout(() => {
+                    send.val('送信');
+                    send.removeClass('sended');
+                }, 1000);
+                
+                console.log('メールアドレス： ' + email.val());
+                console.log('問い合わせ内容： ' + content.val());
+                email.val('');
+                content.val('');
+            }
+        })
+    </script>
+</body>
+</html>
